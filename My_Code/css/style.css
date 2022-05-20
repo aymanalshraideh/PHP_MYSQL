@@ -531,6 +531,7 @@ textarea.input {
 
 .header-ctn .menu-toggle {
   display: none;
+  
 }
 
 .cart-dropdown {
@@ -630,7 +631,7 @@ textarea.input {
 }
 
 .main-nav>li>a:hover, .main-nav>li>a:focus, .main-nav>li.active>a {
-  color: #D10024;
+  color: #ffffff;
   background-color: transparent;
 }
 
@@ -658,11 +659,13 @@ textarea.input {
 
 @media only screen and (max-width: 991px) {
   .header-ctn .menu-toggle {
+    direction: fixed;
+    z-index: 100;
     display: inline-block;
   }
   #responsive-nav {
     position: fixed;
-    left: 0;
+    right: 0;
     top: 0;
     background: #15161D;
     height: 100vh;
