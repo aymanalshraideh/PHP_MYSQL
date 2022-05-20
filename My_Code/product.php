@@ -7,7 +7,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-		<title>Electro - HTML Ecommerce Template</title>
+		<title>pets store. 🐾</title>
 
  		<!-- Google font -->
  		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
@@ -105,7 +105,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">WebSiteName</a>
+      <a class="navbar-brand" href="#">pets store. 🐾</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
@@ -125,7 +125,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
 	  <li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
-						<li><a href=""><i class="fa fa-shopping-cart"></i>My Cart</a></li>
+						<li><a href=""><i class="fa fa-shopping-cart" style="margin-right=1px"> </i>   My Cart</a></li>
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
         <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
@@ -218,7 +218,15 @@
 		<!-- NAVIGATION -->
 		
 		<!-- /NAVIGATION -->
+<?php  $select="SELECT * FROM products where product_id =24" ;
+$fromdb = $db->query($select);
+$showw=$fromdb->fetchAll();
+       foreach($showw as $value):
 
+	
+	   
+	   
+?>
 		<!-- BREADCRUMB -->
 		<div id="breadcrumb" class="section">
 			<!-- container -->
@@ -229,9 +237,9 @@
 						<ul class="breadcrumb-tree">
 							<li><a href="#">Home</a></li>
 							<li><a href="#">All Categories</a></li>
-							<li><a href="#">Accessories</a></li>
-							<li><a href="#">Headphones</a></li>
-							<li class="active">Product name goes here</li>
+							<li><a href="#">Dogs</a></li>
+							
+							<li class="active"><?php echo $value['product_name']; ?></li>
 						</ul>
 					</div>
 				</div>
@@ -240,15 +248,7 @@
 			<!-- /container -->
 		</div>
 		<!-- /BREADCRUMB -->
-		<?php  $select="SELECT * FROM products where product_id =24" ;
-$fromdb = $db->query($select);
-$showw=$fromdb->fetchAll();
-       foreach($showw as $value):
-
-	
-	   
-	   
-?>
+		
 		<!-- SECTION -->
 		<div class="section">
 			<!-- container -->
@@ -259,19 +259,19 @@ $showw=$fromdb->fetchAll();
 					<div class="col-md-5 col-md-push-2">
 						<div id="product-main-img">
 							<div class="product-preview">
-								<img src="./img/a.png" alt="">
+								<img src="./img/<?php echo $value['product_main_image']; ?>" alt="">
 							</div>
 
 							<div class="product-preview">
-								<img src="./img/aa.png" alt="">
+								<img src="./img/<?php echo $value['product_desc_image_1']; ?>" alt="">
 							</div>
 
 							<div class="product-preview">
-								<img src="./img/a.png" alt="">
+								<img src="./img/<?php echo $value['product_desc_image_2']; ?>" alt="">
 							</div>
 
 							<div class="product-preview">
-								<img src="./img/c.png" alt="">
+								<img src="./img/<?php echo $value['product_desc_image_3']; ?>" alt="">
 							</div>
 						</div>
 					</div>
@@ -281,19 +281,19 @@ $showw=$fromdb->fetchAll();
 					<div class="col-md-2  col-md-pull-5">
 						<div id="product-imgs">
 							<div class="product-preview">
-								<img src="./img/a.png" alt="">
+								<img src="./img/<?php echo $value['product_main_image']; ?>" alt="">
 							</div>
 
 							<div class="product-preview">
-								<img src="./img/aa.png" alt="">
+								<img src="./img/<?php echo $value['product_desc_image_1']; ?>" alt="">
 							</div>
 
 							<div class="product-preview">
-								<img src="./img/a.png" alt="">
+								<img src="./img/<?php echo $value['product_desc_image_2']; ?>" alt="">
 							</div>
 
 							<div class="product-preview">
-								<img src="./img/c.png" alt="">
+								<img src="./img/<?php echo $value['product_desc_image_3']; ?>" alt="">
 							</div>
 						</div>
 					</div>
@@ -310,7 +310,7 @@ $showw=$fromdb->fetchAll();
 							<h3 class="product-price">$<?php echo $value['product_price']; ?> </h3>
 								
 							</div>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+							<p><?php echo $value['product_description']; ?></p>
 
 						
 
@@ -375,7 +375,14 @@ $showw=$fromdb->fetchAll();
 								<!-- tab3  -->
 								<div id="tab3" class="tab-pane fade in">
 									<div class="row">
-									
+									<?php
+								// 	 $join='SELECT comments.id ,comments.comment ,comments.comment_image,comments.comment_date,products.product_name From comments 
+                                //    LEFT JOIN products ON comments.comment_product_id=product_id' 
+								   ?> 
+                            <?php
+                                //  $st= $db->query($join);
+                                // $publishers = $st->fetchAll();
+                                  ?>
 										
 									<?php
 $Showsql="SELECT * FROM comments";
