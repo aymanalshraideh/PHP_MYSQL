@@ -7,7 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-      <select class="form-control" id="s">
+
+<table border="1px" >
+    
+    <h3 id="s"> </h3>
+</table>
+
+
+      <select class="form-control" id="d">
         <option value="">Select</option>
     </select>
     <h1 id="show"></h1>
@@ -20,7 +27,9 @@
             const data = await response.json();
             for (let index = 0; index < data.length; index++) {
 
-                document.getElementById("s").innerHTML += "<option>" + data[index].first_name + "</option>"
+                document.getElementById("s").innerHTML += "First Name :"+ data[index].first_name + " Last Name :"+data[index].last_name +"  Age :"+data[index].age+"<br>" 
+               
+                document.getElementById("d").innerHTML += "<option>"+data[index].first_name+"</option>"
 
             }
           document.getElementById("s").onchange=function(){
