@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <select class="form-control" id="s">
+        <option value="">Select</option>
+    </select>
+    <h1 id="show"></h1>
+
+    <script>
+       
+
+        async function LoadData() {
+            const response = await fetch("test.php");
+            const data = await response.json();
+            for (let index = 0; index < data.length; index++) {
+
+                document.getElementById("s").innerHTML += "<option>" + data[index].first_name + "</option>"
+
+            }
+          document.getElementById("s").onchange=function(){
+              for(let j=0;j<data.length;j++){
+                  if(data[j].name===document.getElementById("s").value){
+                      document.getElementById("show").innerHTML=data[j].nickname;
+                  }
+              }
+          }
+        }
+        LoadData();
+    </script>
+</body>
+</html>
